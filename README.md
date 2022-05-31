@@ -1,8 +1,20 @@
-## Welcome to GitHub Pages
+## Welcome to Quintet Mobile GitHub 
 
-You can use the [editor on GitHub](https://github.com/Quintet2022/Public/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+베타앱 배포를 위한 Public 페이지입니다.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 배포 방식
+1. 배포할 앱 설치 파일 준비 (ex: .apk, .aab, .ipa. .plist ...)
+2. Dropbox에 앱설치 파일 공유
+3. Dropbox에 공유한 파일 링크 copy
+4. /Public/???/???.html 파일 링크 경로 수정
+
+### Dropbox 정보
+- [Dropbox website](https://www.dropbox.com/home)
+- [Dropbox 사용방법](https://www.dropbox.com/s/1g8km5cwwsk13tj/Dropbox%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.pdf?dl=0)
+
+### E1오렌지카드 배타앱 다운로드 페이지
+- [E1오렌지카드앱](https://quintet2022.github.io/Public/E1/appdown.html)
+
 
 ### Markdown
 
