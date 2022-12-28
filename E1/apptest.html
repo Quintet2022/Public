@@ -44,7 +44,7 @@
                     } 
                     location.href = storeUri;
                 }
-            }.bind(this), 2500);
+            }.bind(this), 1500);
 
             location.href = this.actionUrl;
         }
@@ -61,13 +61,17 @@
         $('#container a').on('click', function () {
             new ExecuteApp().execute();
         });
-        setTimeout(function () {
-            $('#container a').trigger('click');
-        }, 1500);
+//        setTimeout(function () {
+//            $('#container a').trigger('click');
+//        }, 1500);
     });
+        
+    function runApp(){
+        new ExecuteApp().execute();
+    }
 </script>
 </head>
-<body id="mainBody" class="bg-type1">
+<body id="mainBody" class="bg-type1" onload="runApp();">
 <div class="master-body">
     <div id="body" class="body-area">
         <!-- 2022-04-28 : 앱 다운로드 안내 페이지 -->
