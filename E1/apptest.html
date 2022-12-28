@@ -26,11 +26,13 @@
         };
         
         this.execute = function () {
+            location.href = this.actionUrl;
+            
             this.existsTimer = setInterval(function () {
                 if (document.webkitHidden || document.hidden) {
                     this.clearTimers();
                 }
-            }.bind(this), 200);
+            }.bind(this), 500);
 
             this.moveStoreTimer = setTimeout(function () {
                 this.clearTimers();
@@ -44,9 +46,8 @@
                     } 
                     location.href = storeUri;
                 }
-            }.bind(this), 1500);
+            }.bind(this), 2000);
 
-            location.href = this.actionUrl;
         }
 
         this.clearTimers = function () {
@@ -62,9 +63,8 @@
             new ExecuteApp().execute();
         });
         setTimeout(function () {
-            //$('#container a').trigger('click');
-            new ExecuteApp().execute();
-        }, 2500);
+            $('#container a').trigger('click');
+        }, 1500);
     });
         
     function runApp(){
@@ -96,7 +96,7 @@
     </div>
 </div>
 
-<input name="hdActionUrl" type="hidden" id="hdActionUrl" value="e1orangecard://benefitmoa" />
+<input name="hdActionUrl" type="hidden" id="hdActionUrl" value="e1orangecard://" />
 <input name="hdMoveUrl" type="hidden" id="hdMoveUrl" />
 </body>
 </html>
