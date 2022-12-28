@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head><title>
+	LPG특권 E1 오렌지카드
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta property="og:type" content="website" /><meta property="og:url" content="https://www.e1orangecard.com" /><meta property="og:title" content="모두의 친환경, E1 오렌지카드 : 오렌지카드 앱 다운로드" /><meta property="og:description" content="E1 오렌지카드 고객님을 위한 다양한 특권을 누리세요." /><meta property="og:image" content="https://www.e1orangecard.com/Upload/Notice/opengraph/app_download.png" /><link type="text/css" rel="stylesheet" href="/APP_Mobile/resources/dist/css/webfont.css" /><link type="text/css" rel="stylesheet" href="/APP_Mobile/resources/dist/css/app_style.css" />
+    <script type="text/javascript" src="/APP_Mobile/resources/dist/js/vendors/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/APP_Mobile/resources/dist/js/bridge.min.js?ver=202202240917"></script>
+    <script type="text/javascript" src="/APP_Mobile/resources/dist/js/commonUI.min.js?ver=202202240917"></script>
+    <script type="text/javascript">
+    var ExecuteApp = function () {
+        this.storeUri = {
+            and: 'https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=kr.co.e1.orangecard&ddl=1&pcampaignid=web_ddl_1',
+            ios: 'itms-apps://itunes.apple.com/app/id433209601'
+        }
+        
+        this.existsTimer = null;
+        this.moveStoreTimer = null;
+        this.actionUrl = null;
+        
+        this.init = function () {
+            var moveUrl = $('#' + "hdMoveUrl").val();
+            
+            this.actionUrl = $('#' + "hdActionUrl").val() + escape(moveUrl);
+        };
+        
+        this.execute = function () {
+            this.existsTimer = setInterval(function () {
+                if (document.webkitHidden || document.hidden) {
+                    this.clearTimers();
+                }
+            }.bind(this), 200);
+
+            this.moveStoreTimer = setTimeout(function () {
+                this.clearTimers();
+
+                if (confirm("설치페이지로 이동하시겠습니까?")) {
+                    var storeUri;
+                    if (E1M.isMobile.Android()) {
+                        storeUri = this.storeUri.and;
+                    } else if (E1M.isMobile.IOS()) {
+                        storeUri = this.storeUri.ios;
+                    } 
+                    location.href = storeUri;
+                }
+            }.bind(this), 1500);
+
+            location.href = this.actionUrl;
+        }
+
+        this.clearTimers = function () {
+            clearInterval(this.existsTimer);
+            clearTimeout(this.moveStoreTimer);
+        };
+        
+        this.init();
+    }
+    
+    $(function () {
+        $('#container a').on('click', function () {
+            new ExecuteApp().execute();
+        });
+        setTimeout(function () {
+            $('#container a').trigger('click');
+        }, 1500);
+    });
+</script>
+</head>
+<body id="mainBody" class="bg-type1">
+<div class="master-body">
+    <div id="body" class="body-area">
+        <!-- 2022-04-28 : 앱 다운로드 안내 페이지 -->
+        <div id="container" class="content-area app-download">
+            <div class="txt-box">
+                <img src="resources/dist/img/app_download_logo.svg" class="logo-img" alt="오렌지카드 로고">
+
+                <h2>
+                    <strong>고객님을 위한 특별한 특권!</strong>
+                </h2>
+
+                <p>E1 오렌지카드를 이제 앱으로도 만나보세요.</p>
+            </div>
+
+            <!--// 커스텀 문구-->
+            <a href="#" class="btn-applink">
+                <span>오렌지카드 앱 다운로드</span>
+            </a>
+        </div>
+        <!-- // 2022-04-28 : 앱 다운로드 안내 페이지 -->
+    </div>
+</div>
+
+<input name="hdActionUrl" type="hidden" id="hdActionUrl" value="e1orangecard://" />
+<input name="hdMoveUrl" type="hidden" id="hdMoveUrl" />
+</body>
+</html>
