@@ -61,9 +61,9 @@
         $('#container a').on('click', function () {
             new ExecuteApp().execute();
         });
-//        setTimeout(function () {
-//            $('#container a').trigger('click');
-//        }, 1500);
+        setTimeout(function () {
+            $('#container a').trigger('click');
+        }, 2500);
     });
         
     function runApp(){
@@ -71,7 +71,7 @@
     }
 </script>
 </head>
-<body id="mainBody" class="bg-type1" onload="runApp();">
+<body id="mainBody" class="bg-type1">
 <div class="master-body">
     <div id="body" class="body-area">
         <!-- 2022-04-28 : 앱 다운로드 안내 페이지 -->
